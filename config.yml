@@ -2,3 +2,11 @@ logging:
   level: INFO
   loggers:
     com.spotify: DEBUG
+
+server:
+  applicationConnectors:
+  - type: http 
+    port: 9000
+  adminConnectors:
+  - type: http
+    port: 9001
