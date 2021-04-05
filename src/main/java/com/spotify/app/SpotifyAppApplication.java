@@ -1,5 +1,7 @@
 package com.spotify.app;
 
+import com.spotify.app.resources.SongResource;
+
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -23,7 +25,7 @@ public class SpotifyAppApplication extends Application<SpotifyAppConfiguration> 
     @Override
     public void run(final SpotifyAppConfiguration configuration,
                     final Environment environment) {
-        // TODO: implement application
+        environment.jersey().register(new SongResource());
     }
 
 }
