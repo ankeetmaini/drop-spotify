@@ -11,3 +11,16 @@ Health Check
 ---
 
 To see your applications health enter url `http://localhost:9001/healthcheck`
+
+## dev
+
+> it's on Docker :D
+```bash
+
+docker-compose up --build
+
+```
+
+## todo
+- [] healthchecks
+- [] metrics
