@@ -1,10 +1,25 @@
 package com.spotify.app;
 
 import io.dropwizard.Configuration;
+import io.dropwizard.db.DataSourceFactory;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.hibernate.validator.constraints.*;
+
+import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 public class SpotifyAppConfiguration extends Configuration {
-    // TODO: implement service configuration
+    @Valid
+    @NotNull
+    private DataSourceFactory dataSourceFactory;
+
+    @JsonProperty("database")
+    public DataSourceFactory getDataSourceFactory() {
+        return dataSourceFactory;
+    }
+
+    @JsonProperty("database")
+    public void setDataSourceFactory(DataSourceFactory dataSourceFactory) {
+        this.dataSourceFactory = dataSourceFactory;
+    }
 }

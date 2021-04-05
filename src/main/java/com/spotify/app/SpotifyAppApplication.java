@@ -1,13 +1,21 @@
 package com.spotify.app;
 
+import com.spotify.app.core.Song;
 import com.spotify.app.resources.SongResource;
 
 import io.dropwizard.Application;
+import io.dropwizard.db.DataSourceFactory;
+import io.dropwizard.hibernate.HibernateBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
 public class SpotifyAppApplication extends Application<SpotifyAppConfiguration> {
-
+    private HibernateBundle<SpotifyAppConfiguration> bundle = new HibernateBundle<SpotifyAppConfiguration>(Song.class){
+        public DataSourceFactory getDataSourceFactory(SpotifyAppConfiguration configuration) {
+            return configuration.getDataSourceFactory();
+        }
+        
+    };
     public static void main(final String[] args) throws Exception {
         new SpotifyAppApplication().run(args);
     }
@@ -19,7 +27,7 @@ public class SpotifyAppApplication extends Application<SpotifyAppConfiguration> 
 
     @Override
     public void initialize(final Bootstrap<SpotifyAppConfiguration> bootstrap) {
-        // TODO: application initialization
+        bootstrap.addBundle(bundle);
     }
 
     @Override
