@@ -24,3 +24,12 @@ docker-compose up --build
 ## todo
 - [] healthchecks
 - [] metrics
+
+## apis
+
+- I should be able to save songs with title, artist, duration and genre
+- I should be able to get songs by title
+- I should be able to get songs by artist
+  - artists will have a name
+- I should be able to mark songs and artists as fav
+- I should be able to get a list recommended (using data of my fav songs and artists)
