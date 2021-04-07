@@ -10,3 +10,9 @@ server:
   adminConnectors:
   - type: http
     port: 9001
+
+database:
+  driverClass: com.mysql.jdbc.Driver
+  user: spotify-user
+  password: spotify
+  url: jdbc:mysql://db:3306/spotify

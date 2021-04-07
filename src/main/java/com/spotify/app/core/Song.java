@@ -1,8 +1,15 @@
 package com.spotify.app.core;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@Entity
+@Table(name = "songs")
 public class Song {
+  @Id
   private final long id;
   private final String name;
 
