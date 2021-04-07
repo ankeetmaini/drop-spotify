@@ -12,6 +12,6 @@ public class SongDAO extends AbstractDAO<Song> {
   }
 
   public Song getRandom() {
-    // return list()
+     return new Song(1, "dfdf");
   }
 }

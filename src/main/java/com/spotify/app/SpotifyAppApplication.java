@@ -3,6 +3,8 @@ package com.spotify.app;
 import com.spotify.app.core.Song;
 import com.spotify.app.resources.SongResource;
 
+import org.flywaydb.core.Flyway;
+
 import io.dropwizard.Application;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.hibernate.HibernateBundle;
@@ -27,6 +29,9 @@ public class SpotifyAppApplication extends Application<SpotifyAppConfiguration> 
 
     @Override
     public void initialize(final Bootstrap<SpotifyAppConfiguration> bootstrap) {
+        // todo find a better way
+        Flyway flyway = Flyway.configure().loadDefaultConfigurationFiles().load();
+        flyway.migrate();
         bootstrap.addBundle(bundle);
     }
 
